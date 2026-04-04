@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSJCleaner.com: Shorter UK Civil Service Jobs job URLs</title>
+    <meta
+      name="description"
+      content="Paste a long Civil Service Jobs (CSJ) job URL and get a shorter official link to the same job listing. Ideal for sharing."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.csjcleaner.com/" />
+
+    <meta property="og:title" content="CSJCleaner.com: Shorter UK Civil Service Jobs URLs" />
+    <meta
+      property="og:description"
+      content="Paste a long Civil Service Jobs (CSJ) job URL and get a shorter official link to the same job listing. Ideal for sharing."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.csjcleaner.com/" />
+
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <h1><a href="/">CSJCleaner.com</a></h1>
+        <p class="strapline">
+          Paste a long UK Civil Service Jobs (CSJ) job URL and get a shorter official link to the
+          same job listing. Ideal for sharing.
+        </p>
+      </header>
+
+      <div id="error-summary" tabindex="-1" role="alert" hidden>
+        <h2>There is a problem</h2>
+        <ul>
+          <li><a id="error-summary-link" href="#url-input"></a></li>
+        </ul>
+      </div>
+
+      <form id="cleaner-form" novalidate>
+        <h2><label for="url-input">What is the Civil Service Jobs job listing URL?</label></h2>
+        <p id="url-error" class="error-message" hidden>
+          <span class="visually-hidden">Error:</span>
+          <span id="url-error-text"></span>
+        </p>
+        <textarea
+          id="url-input"
+          name="url"
+          autocomplete="off"
+          required
+          aria-describedby="url-hint url-error"
+          rows="1"
+          spellcheck="false"
+        ></textarea>
+        <button type="submit">Get clean URL</button>
+      </form>
+
+      <div id="result-area" hidden>
+        <h2 class="result-heading">Clean URL</h2>
+        <output id="result" for="url-input">
+          <a id="result-link" href="" target="_blank" rel="noopener noreferrer"></a>
+        </output>
+        <button type="button" id="copy-button" aria-live="polite">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          Copy to clipboard
+        </button>
+      </div>
+
+      <section aria-labelledby="example-heading" class="explainer">
+        <h2 id="example-heading">Example</h2>
+        <div class="example-before">
+          <p class="example-label">Example original</p>
+          <p class="code-example">
+            <code
+              >https://www.civilservicejobs.service.gov.uk/csr/index.cgi?SID=c2VhcmNoc29ydD1zY29yZSZ1c2Vyc2VhcmNoY29udGV4dD0xODE3MzYzMjUmcGFnZWNsYXNzPUpvYnMmb3duZXJ0eXBlPWZhaXImc2VhcmNocGFnZT0xJnBhZ2VhY3Rpb249dmlld3ZhY2J5am9ibGlzdCZqb2JsaXN0X3ZpZXdfdmFjPTE5OTE0MzImb3duZXI9NTA3MDAwMCZyZXFzaWc9MTc3NTI0MTQwMi0yNzM1ZDY0ODY3YzJjNjU4Njk0YmYwODU2YzdlNmMzOGY0YzEzNGI2</code
+            >
+          </p>
+        </div>
+        <p class="example-arrow" aria-hidden="true">↓</p>
+        <div class="example-after">
+          <p class="example-label">Example cleaned</p>
+          <p class="code-example">
+            <code>https://www.civilservicejobs.service.gov.uk/csr/jobs.cgi?jcode=1991432</code>
+          </p>
+        </div>
+      </section>
+      <details>
+        <summary>How it works</summary>
+        <ol>
+          <li>
+            The <code>SID</code> query parameter is extracted and Base64-decoded, giving a standard
+            query string.
+          </li>
+          <li>
+            The decoded query string is parsed to extract the <code>joblist_view_vac</code> value
+            (the job ID).
+          </li>
+          <li>A clean official URL is constructed: <code>…/csr/jobs.cgi?jcode={jobId}</code>.</li>
+        </ol>
+      </details>
+    </main>
+
+    <footer>
+      <p>
+        A personal project by
+        <a
+          href="https://chrishyland.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chris Hyland (opens in new tab)"
+          >Chris Hyland</a
+        >. Not affiliated with Civil Service Jobs or any other organisation.
+      </p>
+      <p>URL cleaning happens within your browser: nothing you enter is transmitted.</p>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
