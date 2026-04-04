@@ -6,7 +6,7 @@
     <title>CSJCleaner.com: Shorter UK Civil Service Jobs job URLs</title>
     <meta
       name="description"
-      content="Paste a long Civil Service Jobs (CSJ) job URL and get a shorter official link to the same job listing. Ideal for sharing."
+      content="Paste a long URL of a job on UK Civil Service Jobs (CSJ) get a shorter official link to the same job. Ideal for sharing."
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.csjcleaner.com/" />
@@ -14,12 +14,13 @@
     <meta property="og:title" content="CSJCleaner.com: Shorter UK Civil Service Jobs URLs" />
     <meta
       property="og:description"
-      content="Paste a long Civil Service Jobs (CSJ) job URL and get a shorter official link to the same job listing. Ideal for sharing."
+      content="Paste a long URL of a job on UK Civil Service Jobs (CSJ) get a shorter official link to the same job. Ideal for sharing."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.csjcleaner.com/" />
 
     <link rel="stylesheet" href="/src/style.css" />
+    <!-- FAVICONS -->
   </head>
 
   <body>
@@ -27,8 +28,15 @@
       <header>
         <h1><a href="/">CSJCleaner.com</a></h1>
         <p class="strapline">
-          Paste a long UK Civil Service Jobs (CSJ) job URL and get a shorter official link to the
-          same job listing. Ideal for sharing.
+          Paste a long URL of a job on
+          <a
+            href="https://www.civilservicejobs.service.gov.uk/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="UK Civil Service Jobs (opens in new tab)"
+            >UK Civil Service Jobs</a
+          >
+          (CSJ) and get a shorter official link to the same job. Ideal for sharing.
         </p>
       </header>
 
@@ -40,7 +48,7 @@
       </div>
 
       <form id="cleaner-form" novalidate>
-        <h2><label for="url-input">What is the Civil Service Jobs job listing URL?</label></h2>
+        <h2><label for="url-input">What is the URL of the job on Civil Service Jobs?</label></h2>
         <p id="url-error" class="error-message" hidden>
           <span class="visually-hidden">Error:</span>
           <span id="url-error-text"></span>

@@ -63,6 +63,17 @@ function extractCleanUrl(rawUrl: string): string {
   return `https://www.civilservicejobs.service.gov.uk/csr/jobs.cgi?jcode=${jobId}`
 }
 
+input.addEventListener('input', () => {
+  resultArea.hidden = true
+})
+
+input.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && !event.shiftKey) {
+    event.preventDefault()
+    form.requestSubmit()
+  }
+})
+
 form.addEventListener('submit', (event) => {
   event.preventDefault()
 
